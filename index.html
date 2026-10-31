@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD. Moniruzzaman Ishaan - Portfolio</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #0a192f; /* Deep Navy */
+            --secondary-color: #172a45;
+            --text-color: #8892b0;
+            --heading-color: #ccd6f6;
+            --accent-color: #64ffda; /* Teal Accent */
+            --white: #ffffff;
+        }
+
+        body {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(10, 25, 47, 0.95);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--heading-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 50px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 50px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            color: var(--heading-color);
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .hero-content h2 {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: rgba(100, 255, 218, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            color: var(--heading-color);
+            font-size: 2rem;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            height: 1px;
+            width: 300px;
+            background-color: var(--secondary-color);
+            margin-left: 20px;
+        }
+
+        .section-title span {
+            color: var(--accent-color);
+            font-family: monospace;
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+
+        /* About Section */
+        .about-text {
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            border-left: 2px solid var(--secondary-color);
+            padding-left: 30px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .timeline-item h3 {
+            color: var(--heading-color);
+            font-size: 1.3rem;
+        }
+
+        .timeline-item h4 {
+            color: var(--accent-color);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-family: monospace;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .timeline-item ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .timeline-item li {
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background-color: var(--secondary-color);
+            padding: 25px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            color: var(--heading-color);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tags span {
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--accent-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+        }
+
+        /* Education & Certs */
+        .edu-item {
+            margin-bottom: 25px;
+        }
+        .edu-item h3 {
+            color: var(--heading-color);
+            font-size: 1.2rem;
+        }
+        .edu-item p {
+            font-size: 0.95rem;
+        }
+        .cert-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .cert-list li {
+            background-color: var(--secondary-color);
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .cert-list li i {
+            color: var(--accent-color);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .contact-info a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-color);
+        }
+
+        .contact-info i {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            border-top: 1px solid var(--secondary-color);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 120px 20px 50px;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                margin: 0 auto 30px;
+            }
+
+            .hero-image img {
+                width: 250px;
+                height: 250px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-title::after {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">MI.</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>MD. Moniruzzaman Ishaan</h1>
+            <h2>Administration & Operations | ICT Project Coordination | Digital Marketing</h2>
+            <p>Multidisciplinary professional combining technical understanding, organizational capability, and proactive problem-solving to support efficient operations and organizational growth.</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+        <div class="hero-image">
+            <!-- আপনার ছবির নাম এখানে দিন (যেমন: profile.jpg)। ছবিটি HTML ফাইলের পাশে রাখুন। -->
+            <img src="image1.jpeg" alt="MD. Moniruzzaman Ishaan" onerror="this.src='https://via.placeholder.com/350?text=Your+Photo+Here'">
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="fade-in">
+        <h2 class="section-title"><span>01.</span> About Me</h2>
+        <div class="about-text">
+            <p>I have an academic background in Computer Science and Engineering with practical experience in ICT operations, project and training coordination, office administration, technical support, accounts operations, and digital marketing. I am experienced in supporting ICT laboratory operations, coordinating training activities, assisting project implementation, maintaining administrative and financial documentation, troubleshooting technical issues, and managing digital promotional activities.</p>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="fade-in">
+        <h2 class="section-title"><span>02.</span> Professional Experience</h2>
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <h3>Lab Coordinator & Lab In-Charge</h3>
+                <h4>BDSET Training Center</h4>
+                <span class="timeline-date">Dec 2025 - Present | Rajshahi, Bangladesh</span>
+                <ul>
+                    <li>Coordinate day-to-day ICT laboratory operations and ensure optimal readiness and functionality.</li>
+                    <li>Monitor laboratory equipment condition, PC configurations, and network readiness.</li>
+                    <li>Provide level-1/level-2 technical assistance and troubleshoot hardware/software issues.</li>
+                    <li>Support instructors and participants during ICT training sessions.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Administrative Officer</h3>
+                <h4>Shono Bangladesh</h4>
+                <span class="timeline-date">Jan 2025 - Aug 2025 | Dhaka, Bangladesh</span>
+                <ul>
+                    <li>Supported daily office administration and internal operational workflows.</li>
+                    <li>Organized and maintained central office archives and document repositories.</li>
+                    <li>Assisted in routine office correspondence, scheduling, and procurement coordination.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Project Coordinator - Her Power Project</h3>
+                <h4>Graphics Aide</h4>
+                <span class="timeline-date">Jun 2023 - Dec 2024 | Chapainawabganj, Bangladesh</span>
+                <ul>
+                    <li>Coordinated field-level training operations for women digital empowerment initiatives.</li>
+                    <li>Managed participant enrollment, attendance tracking, and training information.</li>
+                    <li>Supported field project monitoring, progress documentation, and data summaries.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Digital Marketing Specialist</h3>
+                <h4>EduFuture IT Language Institute</h4>
+                <span class="timeline-date">Jun 2021 - 2023 | Dhaka, Bangladesh</span>
+                <ul>
+                    <li>Managed targeted digital advertising campaigns (Facebook/Meta Ads and Google Ads).</li>
+                    <li>Planned social media content calendars and audience engagement tactics.</li>
+                    <li>Designed creative promotional assets using Adobe Photoshop, Illustrator, and Canva.</li>
+                    <li>Monitored ad performance metrics and optimized campaigns for conversions.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Senior Executive - Accounts</h3>
+                <h4>EGEN Online Marketplace</h4>
+                <span class="timeline-date">2019 - 2021 | Bangladesh</span>
+                <ul>
+                    <li>Maintained daily accounting operations, general ledger updates, and invoices.</li>
+                    <li>Assisted with account reconciliations, expenditure audits, and financial reports.</li>
+                    <li>Managed official financial documentation and BRTIA compliance tasks.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="fade-in">
+        <h2 class="section-title"><span>03.</span> Skills & Competencies</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3><i class="fas fa-briefcase"></i> Administration & Ops</h3>
+                <div class="skill-tags">
+                    <span>Office Administration</span>
+                    <span>Record Management</span>
+                    <span>Data Entry</span>
+                    <span>Reporting</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3><i class="fas fa-project-diagram"></i> ICT & Project</h3>
+                <div class="skill-tags">
+                    <span>Project Coordination</span>
+                    <span>Lab Operations</span>
+                    <span>Technical Support</span>
+                    <span>Troubleshooting</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3><i class="fas fa-bullhorn"></i> Digital Marketing</h3>
+                <div class="skill-tags">
+                    <span>Meta Ads</span>
+                    <span>Google Ads</span>
+                    <span>SEO</span>
+                    <span>Social Media</span>
+                    <span>Lead Generation</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3><i class="fas fa-paint-brush"></i> Design & Tech</h3>
+                <div class="skill-tags">
+                    <span>Canva</span>
+                    <span>Photoshop</span>
+                    <span>Illustrator</span>
+                    <span>CapCut</span>
+                    <span>PC Assembly</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section id="education" class="fade-in">
+        <h2 class="section-title"><span>04.</span> Education & Certifications</h2>
+
+        <div class="edu-item">
+            <h3>B.Sc. in Computer Science and Engineering</h3>
+            <p>2022 - 2025 | CGPA: 3.49/4.00</p>
+        </div>
+        <div class="edu-item">
+            <h3>Diploma in Electronics Technology</h3>
+            <p>Dinajpur Institute of Science and Technology | 2017 - 2022 | CGPA: 3.55/4.00</p>
+        </div>
+        <div class="edu-item">
+            <h3>Secondary School Certificate (SSC)</h3>
+            <p>Dinajpur Technical Training Center (TTC) | 2014 - 2015 | CGPA: 3.57/5.00</p>
+        </div>
+
+        <h3 style="color: var(--heading-color); margin-top: 40px; margin-bottom: 20px;">Certifications</h3>
+        <ul class="cert-list">
+            <li><i class="fas fa-certificate"></i> Digital Marketing & Advertising (FB & Google Ads)</li>
+            <li><i class="fas fa-certificate"></i> Graphic Design (Adobe Photoshop & Illustrator)</li>
+            <li><i class="fas fa-certificate"></i> Cyber Security — Basic Level</li>
+            <li><i class="fas fa-certificate"></i> Mobile Phone Servicing</li>
+            <li><i class="fas fa-certificate"></i> Electronics, Radio & Television Servicing</li>
+            <li><i class="fas fa-certificate"></i> Computer Office Applications</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+        <h2 class="section-title"><span>05.</span> Get In Touch</h2>
+        <div class="contact-content">
+            <p>I am currently open to new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+            <div class="contact-info">
+                <a href="mailto:moniruzzaman.ishaan1@gmail.com"><i class="fas fa-envelope"></i> moniruzzaman.ishaan1@gmail.com</a>
+                <a href="tel:+8801737888820"><i class="fas fa-phone"></i> +880 1737 888820</a>
+                <a href="https://linkedin.com/in/md-moniruzzaman-ishaan" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
+                <p><i class="fas fa-map-marker-alt"></i> Mirpur-10, Dhaka-1216, Bangladesh</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 MD. Moniruzzaman Ishaan. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Scroll Animation -->
+    <script>
+        // Intersection Observer for fade-in animations
+        const faders = document.querySelectorAll('.fade-in');
+
+        const appearOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('appear');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+</html>
